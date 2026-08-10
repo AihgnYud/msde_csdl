@@ -10,7 +10,7 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[sso].[us
 BEGIN
     CREATE TABLE sso.users (
        -- 1. Định danh & Khóa chính (Dual-ID)
-        id BIGINT IDENTITY(1,1) NOT NULL,
+        id int IDENTITY(1,1) NOT NULL,
         guid UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(), -- Public Key cho API
         
         -- Thông tin tài khoản & Xác thực
@@ -26,9 +26,11 @@ BEGIN
         
         -- Quản lý vòng đời dữ liệu (Audit Fields)
         created_at DATETIMEOFFSET NOT NULL DEFAULT SYSDATETIMEOFFSET(),
-        created_by Bigin NULL,
+        created_by int NULL,
         updated_at DATETIMEOFFSET NULL,
-        updated_by Bigin NULL,
+        updated_by int NULL,
+        deleted_at DATETIMEOFFSET NULL,         -- Thời điểm xóa mềm
+        deleted_by INT NULL,                    -- Người thực hiện xóa mềm
         is_deleted BIT NOT NULL DEFAULT 0          -- Soft Delete (1: Đã xóa, 0: Đang hoạt động)
     );
 END

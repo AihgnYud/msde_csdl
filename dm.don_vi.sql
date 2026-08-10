@@ -28,11 +28,13 @@ BEGIN
         trang_thai TINYINT NOT NULL DEFAULT 1,      -- 1: Hoạt động, 0: Tạm dừng/Giải thể
         
         -- Quản lý dữ liệu hệ thống (Audit Fields)
-        created_at DATETIMEOFFSET NOT NULL DEFAULT SYSDATETIMEOFFSET(),
-        created_by UNIQUEIDENTIFIER NULL,
-        updated_at DATETIMEOFFSET NULL,
-        updated_by UNIQUEIDENTIFIER NULL,
-        is_deleted BIT NOT NULL DEFAULT 0,
+        [created_at]                DATETIMEOFFSET NOT NULL DEFAULT SYSDATETIMEOFFSET(),
+        [created_by]                BIGINT NULL,                              -- ID người tạo
+        [updated_at]                DATETIMEOFFSET NULL,                      -- Thời điểm sửa
+        [updated_by]                BIGINT NULL,                              -- ID người sửa
+        [deleted_at]                DATETIMEOFFSET NULL,                      -- Thời điểm xóa mềm
+        [deleted_by]                BIGINT NULL,                              -- ID người xóa mềm
+        [is_deleted]                BIT NOT NULL DEFAULT 0,                   -- 0: Dùng, 1: Xóa mềm
                 
         -- Ràng buộc Khóa ngoại & Duy nhất
         CONSTRAINT FK_donvi_parent FOREIGN KEY (id_parent) REFERENCES dm.don_vi(id),
