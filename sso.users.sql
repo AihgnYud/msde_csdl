@@ -9,8 +9,9 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[sso].[users]') AND type in (N'U'))
 BEGIN
     CREATE TABLE sso.users (
-        -- Định danh & Khóa chính (Dùng UNIQUEIDENTIFIER để tránh dò quét ID tự tăng)
-        id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+       -- 1. Định danh & Khóa chính (Dual-ID)
+        id BIGINT IDENTITY(1,1) NOT NULL,
+        guid UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(), -- Public Key cho API
         
         -- Thông tin tài khoản & Xác thực
         username VARCHAR(50) NOT NULL,
@@ -25,26 +26,26 @@ BEGIN
         
         -- Quản lý vòng đời dữ liệu (Audit Fields)
         created_at DATETIMEOFFSET NOT NULL DEFAULT SYSDATETIMEOFFSET(),
-        created_by UNIQUEIDENTIFIER NULL,
+        created_by Bigin NULL,
         updated_at DATETIMEOFFSET NULL,
-        updated_by UNIQUEIDENTIFIER NULL,
+        updated_by Bigin NULL,
         is_deleted BIT NOT NULL DEFAULT 0          -- Soft Delete (1: Đã xóa, 0: Đang hoạt động)
     );
 END
 GO
 
--- 3. Ràng buộc duy nhất (Unique Constraint) cho Username
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[sso].[UQ_users_username]') AND type = N'UQ')
+-- 1. Unique Index cho GUID (Phục vụ truy vấn từ API / Token / Microservices)
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE name = N'uq_idx_users_guid' AND object_id = OBJECT_ID(N'[sso].[users]'))
 BEGIN
-    ALTER TABLE sso.users 
-    ADD CONSTRAINT UQ_users_username UNIQUE (username);
+    CREATE UNIQUE NONCLUSTERED INDEX uq_idx_users_guid 
+    ON sso.users(guid);
 END
 GO
 
--- 4. Đánh chỉ mục lọc (Filtered Index) tối ưu truy vấn đăng nhập cho tài khoản chưa bị xóa
-IF NOT EXISTS (SELECT * FROM sys.indexes WHERE name = N'idx_users_username' AND object_id = OBJECT_ID(N'[sso].[users]'))
+-- 2. Unique Filtered Index cho Username (Tối ưu Đăng nhập & Hỗ trợ Xóa mềm)
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE name = N'uq_idx_users_username_active' AND object_id = OBJECT_ID(N'[sso].[users]'))
 BEGIN
-    CREATE NONCLUSTERED INDEX idx_users_username 
+    CREATE UNIQUE NONCLUSTERED INDEX uq_idx_users_username_active 
     ON sso.users(username) 
     WHERE is_deleted = 0;
 END
