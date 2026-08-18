@@ -14,7 +14,7 @@ BEGIN
         --------------------------------------------------------------------------------
         [doi_tuong_id]              BIGINT NULL,                              -- PersonalProfileId
         [ho_ten]                    NVARCHAR(150) NULL,
-        [ngay_sinh]                 VARCHAR(8) NULL,                          -- YYYYMMDD
+        [ngay_sinh]                 int NULL,                          -- YYYYMMDD
         [chi_nam_sinh]              TINYINT NULL,                             -- Chỉ có năm sinh
         [gioi_tinh]                 BIT NULL,                                 -- 1: Nam, 0: Nữ
         [so_cccd]                   VARCHAR(12) NULL,                         -- ID Card 12 số

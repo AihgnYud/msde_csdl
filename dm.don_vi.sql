@@ -10,7 +10,7 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dm].[don
 BEGIN
     CREATE TABLE dm.don_vi (
         -- Khóa chính Tự tăng (BigInt)
-        id BIGINT IDENTITY(1,1) PRIMARY KEY,
+        id int IDENTITY(1,1) PRIMARY KEY,
         
         -- Mã & Tên Đơn vị
         ma_dv VARCHAR(20) NOT NULL,                -- node_code: Mã ngắn tại cấp hiện tại (Vd: '01', '02', '105')
@@ -29,11 +29,11 @@ BEGIN
         
         -- Quản lý dữ liệu hệ thống (Audit Fields)
         [created_at]                DATETIMEOFFSET NOT NULL DEFAULT SYSDATETIMEOFFSET(),
-        [created_by]                BIGINT NULL,                              -- ID người tạo
+        [created_by]                int NULL,                              -- ID người tạo
         [updated_at]                DATETIMEOFFSET NULL,                      -- Thời điểm sửa
-        [updated_by]                BIGINT NULL,                              -- ID người sửa
+        [updated_by]                int NULL,                              -- ID người sửa
         [deleted_at]                DATETIMEOFFSET NULL,                      -- Thời điểm xóa mềm
-        [deleted_by]                BIGINT NULL,                              -- ID người xóa mềm
+        [deleted_by]                int NULL,                              -- ID người xóa mềm
         [is_deleted]                BIT NOT NULL DEFAULT 0,                   -- 0: Dùng, 1: Xóa mềm
                 
         -- Ràng buộc Khóa ngoại & Duy nhất
