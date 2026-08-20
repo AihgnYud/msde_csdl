@@ -11,8 +11,10 @@ BEGIN
         [id]                        BIGINT IDENTITY(1,1) NOT NULL,
         doi_tuong_id bigint not null,        
         [nhap_ngu]                      int NULL,          
-        [tuyen_dung]                      int NULL,     
-        --CSKCB
+        [xuat_ngu]                      int NULL,          
+        [tai_ngu]                      int NULL,          
+        [tuyen_dung]                      int NULL,            
+        benh_vien_id                    int null,                   
         [den_thang_the]                      int NULL,     
         [cu_tru_tinh_id]                   SMALLINT NULL,                            -- AddressProvinceId
         [cu_tru_huyen_id]                  SMALLINT NULL,                            -- AddressDistrictId

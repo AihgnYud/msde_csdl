@@ -15,8 +15,8 @@ BEGIN
         den_thang int not null,--yyyyMM
         [loai_dt_id]                     SMALLINT NULL,--join bảng dm đối tượng để biết SQ hay QNCN
         [cap_bac_id]                     SMALLINT NULL,
-        [chuc_vu_id]                     SMALLINT NULL,
-        [nghe_nghiep_id]                     SMALLINT NULL,
+        [chuc_vu_id]                     int NULL,        
+        [nghe_nghiep_id]                     int NULL,
         [pa_dc_id]                     SMALLINT NULL,
         [don_vi_id]                     int NULL,
 

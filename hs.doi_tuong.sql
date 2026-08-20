@@ -14,15 +14,17 @@ BEGIN
         [ngay_sinh]                 int NULL,                          -- YYYYMMDD, nếu chỉ có năm sinh 19780000, nếu chỉ có tháng và năm 19781100        
         [gioi_tinh]                 BIT NULL,                                 -- 1: Nam, 0: Nữ
         [so_cccd]                   VARCHAR(12) NULL,                         -- ID Card 12 số
+        noi_cap_cccd	            NVARCHAR(150) null,
+        ngay_cap_cccd               int null,
+        [so_cmnd]                   VARCHAR(10) NULL,                         -- ID Card 12 số
+        noi_cap_cmnd	            NVARCHAR(150) null,
+        ngay_cap_cmnd               int null,
         [ma_so_bhxh]                VARCHAR(12) NULL,          
-        [que_quan_tinh_id]                   SMALLINT NULL,                            -- AddressProvinceId
-        [que_quan_huyen_id]                  SMALLINT NULL,                            -- AddressDistrictId
-        [que_quan_xa_id]                     SMALLINT NULL,          
-        --Dân tộc
-        -- Quốc tịch
-        --[SO_CM] [nvarchar](15) NULL,
-	--[NOI_CAP_CMT] [nvarchar](50) NULL,
-	--[NGAY_CAP_CMT] [datetime] NULL,
+        [que_quan_tinh_id]          SMALLINT NULL,                            -- AddressProvinceId
+        [que_quan_huyen_id]         SMALLINT NULL,                            -- AddressDistrictId
+        [que_quan_xa_id]            SMALLINT NULL,          
+        dan_toc_id                  TINYINT null,        
+        quoc_tich_id                TINYINT,       
           -- 11. BỘ AUDIT FIELDS CHUẨN (Quản lý vòng đời dữ liệu)
         --------------------------------------------------------------------------------
         [created_at]                DATETIMEOFFSET NOT NULL DEFAULT SYSDATETIMEOFFSET(),
