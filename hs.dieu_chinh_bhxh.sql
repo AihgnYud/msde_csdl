@@ -19,7 +19,18 @@ BEGIN
         [nghe_nghiep_id]                     int NULL,
         [pa_dc_id]                     SMALLINT NULL,
         [don_vi_id]                     int NULL,
-
+        [hsl]               DECIMAL(4, 2) NULL, -- Hệ số lương (VD: 4.65, 10.00)
+        [luong]             INT NULL,          -- Tiền lương khoán/HĐLĐ (VNĐ)
+        [hs_cv]             DECIMAL(4, 2) NULL, -- Hệ số chức vụ (VD: 0.25, 1.10)
+        [phu_cap_cv]        INT NULL,          -- Phụ cấp chức vụ bằng tiền đồng (VNĐ)
+        [tham_nien_ng]      TINYINT NULL,       -- % Thâm niên nghề (0 -> 100)
+        [tham_nien_vk]      TINYINT NULL,        -- % Thâm niên vượt khung (0 -> 100)
+        [hs_bao_luu]        DECIMAL(5, 3) NULL, -- Hệ số bảo lưu (VD: 0.15)
+        [phu_cap_khac]      INT NULL,          -- Phụ cấp khác bằng tiền đồng (VNĐ)
+        [tong_luong]        INT NOT NULL,      -- Tổng số tiền tính đóng BHXH 
+        [tc_tnld_bnn]        INT  NULL,      -- Trợ cấp tnld_bnn 
+        [giai_quyet_cd_id] bigint null,  --Là hồ sơ giải quyết chế độ nào
+        [ghi_chu]        NVARCHAR(200) NULL.  -- Ghi chú tự do
         --------------------------------------------------------------------------------
         [created_at]                DATETIMEOFFSET NOT NULL DEFAULT SYSDATETIMEOFFSET(),
         [created_by]                BIGINT NULL,                              -- ID người tạo
