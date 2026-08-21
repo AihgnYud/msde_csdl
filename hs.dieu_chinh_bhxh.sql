@@ -17,8 +17,10 @@ BEGIN
         [cap_bac_id]                     SMALLINT NULL,
         [chuc_vu_id]                     int NULL,        
         [nghe_nghiep_id]                     int NULL,
-        [pa_dc_id]                     SMALLINT NULL,
+        [pa_tang_id]                     SMALLINT NULL,--Phương án điều chỉnh tăng
+        [pa_giam_id]                     SMALLINT NULL,--Phương án điều chỉnh giảm
         [don_vi_id]                     int NULL,
+        [don_vi_chuyen_id]              int NULL,--Chuyển đi hay chuyển đến đơn vị nào
         [hsl]               DECIMAL(4, 2) NULL, -- Hệ số lương (VD: 4.65, 10.00)
         [luong]             INT NULL,          -- Tiền lương khoán/HĐLĐ (VNĐ)
         [hs_cv]             DECIMAL(4, 2) NULL, -- Hệ số chức vụ (VD: 0.25, 1.10)
