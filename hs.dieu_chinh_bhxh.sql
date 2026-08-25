@@ -29,6 +29,8 @@ BEGIN
         [tham_nien_vk]      TINYINT NULL,        -- % Thâm niên vượt khung (0 -> 100)
         [hs_bao_luu]        DECIMAL(5, 3) NULL, -- Hệ số bảo lưu (VD: 0.15)
         [phu_cap_khac]      INT NULL,          -- Phụ cấp khác bằng tiền đồng (VNĐ)
+		[phu_cap_kv]           DECIMAL(4, 2) NULL, -- Phụ cấp khu vực
+		[phu_cap_bck]           DECIMAL(4, 2) NULL, -- Phụ cấp khu vực
         [tong_luong]        INT NOT NULL,      -- Tổng số tiền tính đóng BHXH 
         [tc_tnld_bnn]        INT  NULL,      -- Trợ cấp tnld_bnn 
         [giai_quyet_cd_id] bigint null,  --Là hồ sơ giải quyết chế độ nào
