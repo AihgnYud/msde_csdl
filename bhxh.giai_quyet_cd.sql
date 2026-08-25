@@ -6,7 +6,7 @@ END
 GO
 
 -- =============================================================================
--- 1. BẢNG THÔNG TIN CHUNG GIẢI QUYẾT CHẾ ĐỘ (DÙNG CHUNG CHO CẢ NH VÀ DH)
+-- 1. BẢNG THÔNG TIN CHUNG GIẢI QUYẾT CHẾ ĐỘ (DÙNG CHUNG CHO CẢ NH VÀ DH dài hạn)
 -- =============================================================================
 CREATE TABLE [bhxh].[giai_quyet_cd] (
      [id]                        BIGINT IDENTITY(1,1) NOT NULL,
