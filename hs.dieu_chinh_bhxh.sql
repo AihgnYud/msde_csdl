@@ -13,12 +13,12 @@ BEGIN
         doi_tuong_id bigint not null,  --Biến động của đối tượng nào      
         tu_thang int not null,--yyyyMM
         den_thang int not null,--yyyyMM
-        [loai_dt_id]                     SMALLINT NULL,--join bảng dm đối tượng để biết SQ hay QNCN
-        [cap_bac_id]                     SMALLINT NULL,
+        [loai_dt_id]                     TINYINT NULL,--join bảng dm đối tượng để biết SQ hay QNCN
+        [cap_bac_id]                     TINYINT NULL,
         [chuc_vu_id]                     int NULL,        
         [nghe_nghiep_id]                     int NULL,
-        [pa_tang_id]                     SMALLINT NULL,--Phương án điều chỉnh tăng
-        [pa_giam_id]                     SMALLINT NULL,--Phương án điều chỉnh giảm
+        [pa_tang_id]                     TINYINT NULL,--Phương án điều chỉnh tăng
+        [pa_giam_id]                     TINYINT NULL,--Phương án điều chỉnh giảm
         [don_vi_id]                     int NULL,
         [don_vi_chuyen_id]              int NULL,--Chuyển đi hay chuyển đến đơn vị nào
         [hsl]               DECIMAL(4, 2) NULL, -- Hệ số lương (VD: 4.65, 10.00)
@@ -34,7 +34,7 @@ BEGIN
         [tong_luong]        INT NOT NULL,      -- Tổng số tiền tính đóng BHXH 
         [tc_tnld_bnn]        INT  NULL,      -- Trợ cấp tnld_bnn 
         [giai_quyet_cd_id] bigint null,  --Là hồ sơ giải quyết chế độ nào
-        [ghi_chu]        NVARCHAR(200) NULL.  -- Ghi chú tự do
+        [ghi_chu]        NVARCHAR(200) NULL,  -- Ghi chú tự do
         --------------------------------------------------------------------------------
         [created_at]                DATETIMEOFFSET NOT NULL DEFAULT SYSDATETIMEOFFSET(),
         [created_by]                BIGINT NULL,                              -- ID người tạo
