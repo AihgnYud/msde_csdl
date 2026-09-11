@@ -18,7 +18,7 @@ BEGIN
         ten_viet_tat NVARCHAR(50) NULL,             -- Tên viết tắt (Vd: 'e102')
         
         -- Phân cấp Cây Đơn vị (Materialized Path)
-        id_parent BIGINT NULL,                  -- Id đơn vị cha trực tiếp (Self-referencing FK)
+        id_parent int NULL,                  -- Id đơn vị cha trực tiếp (Self-referencing FK)
         level_dv INT NOT NULL DEFAULT 1,          -- Độ sâu của cây (1: Cục/QK, 2: Sư đoàn, 3: Trung đoàn...)
         ma_dv_full VARCHAR(500) NOT NULL,     -- org_path: Mã đầy đủ (Vd: '01.02.105')
         
