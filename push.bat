@@ -3,7 +3,7 @@ echo === THUC HIEN DAY LEN GIT ===
 git pull
 git add .
 git status
-git commit -m "Them bang dm chuc vu"
+git commit -m "Them cac bang import"
 git push
 
 echo === THUC HIEN HOAN TAT ===
