@@ -24,6 +24,7 @@ BEGIN
 
             -- Dữ liệu động theo từng loại hồ sơ (lưu định dạng JSON)
             [du_lieu_chi_tiet_json] NVARCHAR(MAX) NULL,             -- VD: {"ngay_tai_nan": "2026-05-10", "tien_luong": 15000000}
+            -- Như thế này sẽ động với nhiều loại file đầu vào khác nhau
 
             -- Quản lý trạng thái & lỗi
             [trang_thai_dong]       TINYINT DEFAULT 0,               -- 0: Bị lỗi, 1: Hợp lệ
