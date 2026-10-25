@@ -9,8 +9,7 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[hs].[import_chi_tiet]') AND type in (N'U'))
 BEGIN
    CREATE TABLE hs.import_chi_tiet (
-            [id]                    BIGINT IDENTITY(1,1) PRIMARY KEY,
-            [ma]         VARCHAR(50) NOT NULL UNIQUE,     -- Mã đợt import sinh tự động cấu trúc: IMP_NĂM_LOẠIHS_MÃ ĐV_Số đợt, ví dụ: IMP_2026_TNLDBNN_0760_01 (số đợt theo loại hồ sơ, năm, mã đơn vị)
+            [id]                    BIGINT IDENTITY(1,1) PRIMARY KEY,            
             [import_dot_id]         INT NOT NULL,                    -- FK trỏ hs.import_dot
             [stt_dong]              INT NOT NULL,                    -- Số dòng tương ứng trong file Excel
 

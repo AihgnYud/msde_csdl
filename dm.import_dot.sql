@@ -17,7 +17,7 @@ BEGIN
             [so_ho_so]     int, -- Số lượng hồ sơ trong file đã import
             [so_ho_so_loi]     int, -- Số lượng hồ sơ trong file đã import còn bị lỗi
             [lan_upload]            INT DEFAULT 1,                   -- Đếm số lần upload đè file (Cho phép sửa, chọn lại file upload để đè)
-            [trang_thai]    TINYINT NOT NULL DEFAULT 1,         -- 1: Khởi tạo, 0: Có lỗi; 2: Hoàn thạnh; -1 Hủy      
+            [trang_thai]    TINYINT NOT NULL DEFAULT 1,         -- 1: Khởi tạo, 0: Có lỗi; 2: Hoàn thạnh; 3 Hủy      
             -- Quản lý dữ liệu hệ thống (Audit Fields)
             [created_at]                DATETIMEOFFSET NOT NULL DEFAULT SYSDATETIMEOFFSET(),
             [created_by]                int NULL,                              -- ID người tạo
