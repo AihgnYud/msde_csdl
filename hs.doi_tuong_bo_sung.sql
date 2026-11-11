@@ -14,8 +14,16 @@ BEGIN
         [xuat_ngu]                      int NULL,          
         [tai_ngu]                      int NULL,          
         [tuyen_dung]                      int NULL,            
-        benh_vien_id                    int null,                   
-        [den_thang_the]                      int NULL,     
+        benh_vien_id                    int null,           --Bệnh viện đề nghị cấp thẻ        
+        [tu_thang_the]                      int NULL,     --Đề nghị cấp thẻ từ tháng
+        [den_thang_the]                      int NULL,     -- Đề nghị cấp thẻ đến tháng
+        [id_the_ht]      BIGINT NULL,            -- Trỏ tới ID thẻ mới nhất trong bảng bhyt_the
+        [ma_the_the_ht]                      varchar(17) NULL,     -- Thẻ hiện tại đến tháng nào
+         benh_vien_id_ht                    int null, --Thẻ hiện tại tại bv nào                  
+         [tu_thang_the_ht]                      int NULL,     -- Thẻ hiện tại từ tháng nào
+        [den_thang_the_ht]                      int NULL,     -- Thẻ hiện tại đến tháng nào
+        [nam_5_lien_tuc]                      int NULL,     -- Thời điểm 5 năm liên tục thẻ đã cấp
+        [trang_thai_the_ht]            TINYINT DEFAULT 1,  -- Đang có hiệu lực, trạng thái thẻ hiện tại
         [cu_tru_tinh_id]                   SMALLINT NULL,                            -- AddressProvinceId
         [cu_tru_huyen_id]                  SMALLINT NULL,                            -- AddressDistrictId
         [cu_tru_xa_id]                     SMALLINT NULL,   
