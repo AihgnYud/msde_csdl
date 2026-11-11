@@ -16,6 +16,8 @@ BEGIN
         [loai_dt_id]                     TINYINT NULL,--join bảng dm đối tượng để biết SQ hay QNCN
         [cap_bac_id]                     TINYINT NULL,
         [chuc_vu_id]                     int NULL,        
+        dien_ql TINYINT NOT NULL DEFAULT 0, --diện quản lý là cán bộ hay quân lực: 0 là QL, 1 là Cán bộ
+        khoi_dn_dt TINYINT NOT NULL DEFAULT 0, --thuộc khối doanh nghiệp hay hạch toán 0 là dự toán, 1 là doanh nghiệp
         [nghe_nghiep_id]                     int NULL,
         [pa_tang_id]                     TINYINT NULL,--Phương án điều chỉnh tăng
         [pa_giam_id]                     TINYINT NULL,--Phương án điều chỉnh giảm

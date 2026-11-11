@@ -9,7 +9,7 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[hs].[doi
 BEGIN
     CREATE TABLE hs.doi_tuong_bo_sung (
         [id]                        BIGINT IDENTITY(1,1) NOT NULL,
-        doi_tuong_id bigint not null,        
+        doi_tuong_id bigint not null,               
         [nhap_ngu]                      int NULL,          
         [xuat_ngu]                      int NULL,          
         [tai_ngu]                      int NULL,          
