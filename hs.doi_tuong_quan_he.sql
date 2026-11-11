@@ -4,11 +4,11 @@ BEGIN
     EXEC('CREATE SCHEMA hs');
 END
 GO
--- 2. Tạo Bảng hs.quan_he_than_nhan
+-- 2. Tạo Bảng hs.doi_tuong_quan_he
 
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[hs].[quan_he_than_nhan]') AND type in (N'U'))
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[hs].[doi_tuong_quan_he]') AND type in (N'U'))
 BEGIN
-   CREATE TABLE hs.quan_he_than_nhan (
+   CREATE TABLE hs.doi_tuong_quan_he (
             [id]                    BIGINT IDENTITY(1,1) PRIMARY KEY,
     
     -- Người lao động chính (Người đang công tác / người chủ trì hồ sơ)
@@ -35,7 +35,7 @@ BEGIN
         [is_deleted]                BIT NOT NULL DEFAULT 0,                   -- 0: Dùng, 1: Xóa mềm
     
     -- Ràng buộc khóa ngoại
-    CONSTRAINT FK_QHTN_NguoiLaoDong FOREIGN KEY ([doi_tuong_id]) REFERENCES hs.doi_tuong([id]),
+    CONSTRAINT FK_QHTN_DoiTuong FOREIGN KEY ([doi_tuong_id]) REFERENCES hs.doi_tuong([id]),
     CONSTRAINT FK_QHTN_ThanNhan FOREIGN KEY ([than_nhan_id]) REFERENCES hs.doi_tuong([id]),
     
     -- Tránh việc 1 người vừa là người lao động vừa là chính mình
@@ -43,13 +43,13 @@ BEGIN
 );
 
 -- Index tối ưu tra cứu nhanh thân nhân của một người lao động hoặc ngược lại
-CREATE INDEX IX_QHTN_NLD ON hs.quan_he_than_nhan([doi_tuong_id]);
-CREATE INDEX IX_QHTN_TN ON hs.quan_he_than_nhan([than_nhan_id]);
+CREATE INDEX IX_QHTN_NLD ON hs.doi_tuong_quan_he([doi_tuong_id]);
+CREATE INDEX IX_QHTN_TN ON hs.doi_tuong_quan_he([than_nhan_id]);
 END
 GO
---SET IDENTITY_INSERT dm.quan_he_than_nhan ON;
+--SET IDENTITY_INSERT dm.doi_tuong_quan_he ON;
 
---SET IDENTITY_INSERT dm.quan_he_than_nhan OFF;
+--SET IDENTITY_INSERT dm.doi_tuong_quan_he OFF;
 GO
 
 --TINYINT: 1 byte (0 đến 255) $\leftarrow$ Nhỏ nhất
