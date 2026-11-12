@@ -10,10 +10,21 @@ BEGIN
     CREATE TABLE hs.doi_tuong_bo_sung (
         [id]                        BIGINT IDENTITY(1,1) NOT NULL,
         doi_tuong_id bigint not null, 
+        --Các thông tin cấp bậc chứ vụ đơn vị hiện tại
         [loai_dt_id]                     TINYINT NULL,--join bảng dm đối tượng để biết SQ hay QNCN
+        thang_ht int not null,--yyyyMM Tháng hiện tại là tháng nào (cột này ẩn, để hệ thống kiểm soát: 
+                            -- Khi nhập mới thì luôn mặc định là tháng hiện tại (lấy ngày giờ của hệ thống), ví dụ nhập mới đối tượng
+                            --vào tháng 11/2026 thì cột này là tháng 11/2026. 
+                            -- Nếu là dữ liệu do chuyển đổi từ hệ thống cũ, hoặc quản trị viên thiết lập dữ liệu thì cột này là : 01/1900
+                            -- Khi thực hiện các điều chỉnh tại bảng điều chỉnh nếu thêm sửa các điều chỉnh trước tháng hiện tại thang_dieu_chinh < thang_ht 
+                            --thì không cập nhật sang cấp bậc, chức vụ, đơn vị (cache); ngược lại, sau tháng hiện tại thang_dieu_chinh >= thang_ht thì cập nhật
+                             --và cập nhật cả thang_ht= tháng điều chỉnh
+                             -- Trên title của bảng điều chỉnh: Hiện thông tin hiện tại: Hiện tại (từ 11/2026): Đại úy, Trợ lý, Mã đv: 0703 -> Sau đó có nút lệnh 
+                             --Đồng bộ từ Đ/c (khi người dùng di chuột vào nút này hiện lên tooltip: Cập nhật từ dòng điều chỉnh cuối cùng vào hồ sơ hiện tại của cá nhân)
         [cap_bac_id]                     TINYINT NULL,
-        [chuc_vu_id]                     int NULL, 
+        [chuc_vu_id]                     int NULL,        
         [don_vi_id]                     int NULL,
+        ---
         [nhap_ngu]                      int NULL,     
         dien_ql TINYINT NOT NULL DEFAULT 0, --diện quản lý là cán bộ hay quân lực: 0 là QL, 1 là Cán bộ
         khoi_dn_dt TINYINT NOT NULL DEFAULT 0, --thuộc khối doanh nghiệp hay hạch toán 0 là dự toán, 1 
