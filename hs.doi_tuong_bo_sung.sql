@@ -9,8 +9,14 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[hs].[doi
 BEGIN
     CREATE TABLE hs.doi_tuong_bo_sung (
         [id]                        BIGINT IDENTITY(1,1) NOT NULL,
-        doi_tuong_id bigint not null,               
-        [nhap_ngu]                      int NULL,          
+        doi_tuong_id bigint not null, 
+        [loai_dt_id]                     TINYINT NULL,--join bảng dm đối tượng để biết SQ hay QNCN
+        [cap_bac_id]                     TINYINT NULL,
+        [chuc_vu_id]                     int NULL, 
+        [don_vi_id]                     int NULL,
+        [nhap_ngu]                      int NULL,     
+        dien_ql TINYINT NOT NULL DEFAULT 0, --diện quản lý là cán bộ hay quân lực: 0 là QL, 1 là Cán bộ
+        khoi_dn_dt TINYINT NOT NULL DEFAULT 0, --thuộc khối doanh nghiệp hay hạch toán 0 là dự toán, 1 
         [xuat_ngu]                      int NULL,          
         [tai_ngu]                      int NULL,          
         [tuyen_dung]                      int NULL,            
