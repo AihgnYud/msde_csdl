@@ -25,6 +25,7 @@ BEGIN
         [que_quan_xa_id]            SMALLINT NULL,          
         dan_toc_id                  TINYINT null,        
         quoc_tich_id                TINYINT,       
+        [ho_ten_khong_dau]          VARCHAR(150) NULL,--IN HOA VÀ BỎ KÝ TỰ TRĂNG: ví dụ Nguyễn   Xuân Phúc thì sẽ lưu là NGUYENXUANPHUC
           -- 11. BỘ AUDIT FIELDS CHUẨN (Quản lý vòng đời dữ liệu)
         --------------------------------------------------------------------------------
         [created_at]                DATETIMEOFFSET NOT NULL DEFAULT SYSDATETIMEOFFSET(),

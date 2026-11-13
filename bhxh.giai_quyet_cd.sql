@@ -61,6 +61,7 @@ CREATE TABLE [bhxh].[giai_quyet_cd] (
     [ngay_chuyen_vn]          int      NULL,  -- YYYYMMDD, 
     
     -- Audit Logs
+    [ho_ten_khong_dau]          VARCHAR(150) NULL,--IN HOA VÀ BỎ KÝ TỰ TRĂNG: ví dụ Nguyễn   Xuân Phúc thì sẽ lưu là NGUYENXUANPHUC
      --------------------------------------------------------------------------------
     [created_at]                DATETIMEOFFSET NOT NULL DEFAULT SYSDATETIMEOFFSET(),
     [created_by]                BIGINT NULL,                              -- ID người tạo

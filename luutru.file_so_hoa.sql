@@ -16,4 +16,14 @@ CREATE TABLE hs.file_so_hoa (
     -- Metadata hệ thống
     nguoi_tai_len     BIGINT NULL,               -- ID cán bộ upload/ký số
     ngay_tao          DATETIME2 DEFAULT GETDATE()
+
+    --Lưu ý tham khảo các trường
+    id BIGINT IDENTITY(1,1) PRIMARY KEY,
+    loai_file_id INT FOREIGN KEY REFERENCES dm.loai_file(id), -- Phải thuộc nhóm 2 (VD: CCCD, Hồ sơ gốc cũ...)
+    doi_tuong_id BIGINT NOT NULL,           -- Thuộc quân nhân nào
+    so_hieu_giay_to VARCHAR(100) NULL,      -- Số CCCD hoặc số quyết định trên bản giấy cũ
+    ngay_cap_giay_to DATE NULL,             -- Ngày trên văn bản gốc
+    duong_dan_file NVARCHAR(500) NOT NULL,
+    nguoi_so_hoa_id BIGINT NULL,            -- Cán bộ thực hiện scan/số hóa
+    ngay_so_hoa DATETIME2 DEFAULT SYSDATETIME()
 );

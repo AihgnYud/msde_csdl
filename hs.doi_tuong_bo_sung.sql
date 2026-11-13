@@ -16,6 +16,7 @@ BEGIN
                             -- Khi nhập mới thì luôn mặc định là tháng hiện tại (lấy ngày giờ của hệ thống), ví dụ nhập mới đối tượng
                             --vào tháng 11/2026 thì cột này là tháng 11/2026. 
                             -- Nếu là dữ liệu do chuyển đổi từ hệ thống cũ, hoặc quản trị viên thiết lập dữ liệu thì cột này là : 01/1900
+                            -- Nếu người dùng vào chỉnh sửa dữ liệu mà thang_ht=190001 thì set thang_ht bằng ngày giờ hệ thống
                             -- Khi thực hiện các điều chỉnh tại bảng điều chỉnh nếu thêm sửa các điều chỉnh trước tháng hiện tại thang_dieu_chinh < thang_ht 
                             --thì không cập nhật sang cấp bậc, chức vụ, đơn vị (cache); ngược lại, sau tháng hiện tại thang_dieu_chinh >= thang_ht thì cập nhật
                              --và cập nhật cả thang_ht= tháng điều chỉnh

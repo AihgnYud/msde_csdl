@@ -114,7 +114,7 @@ BEGIN
         [ghi_chu_thay_doi]          NVARCHAR(255) NULL,                       -- ChangedInfoNote
         [ghi_chu_check_bhvn]        NVARCHAR(1000) NULL,                      -- NoteCheckBhvn
         [ma_loi]                    NVARCHAR(255) NULL,                       -- ErrorCode
-
+        [ho_ten_khong_dau]          VARCHAR(150) NULL,--IN HOA VÀ BỎ KÝ TỰ TRĂNG: ví dụ Nguyễn   Xuân Phúc thì sẽ lưu là NGUYENXUANPHUC
         --------------------------------------------------------------------------------
         -- 11. BỘ AUDIT FIELDS CHUẨN (Quản lý vòng đời dữ liệu)
         --------------------------------------------------------------------------------
