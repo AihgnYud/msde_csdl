@@ -62,6 +62,7 @@ WHERE NOT EXISTS (
 GO
 
 alter table dm.doi_tuong add is_nld bit default 0
+alter table dm.doi_tuong add is_co_than_nhan bit default 0
 alter table dm.doi_tuong add is_hssv bit default 0
 alter table dm.doi_tuong add is_than_nhan bit default 0
 
@@ -71,6 +72,14 @@ WHERE ma IN (
     'SQ', 'QNCN', 'BS', 'HVCY', 'CNQP', 'VCQP', 'CCQP', 
     'NLD', 'LDHD', 'PN', 'HVQS', 'SQDB', 'HCCY', 'KTCY', 
     'CNVCQP', 'HV', 'HCY', 'KHAC', 'IS'
+);
+
+UPDATE dm.doi_tuong
+SET is_co_than_nhan = 1
+WHERE ma IN (
+    'SQ', 'QNCN', 'BS', 'HVCY', 'CNQP', 'VCQP', 
+    'HVQS', 'SQDB', 'KTCY', 
+    'CNVCQP', 'HV', 'HCY' 
 );
 
 UPDATE dm.doi_tuong
