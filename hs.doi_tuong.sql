@@ -13,7 +13,7 @@ BEGIN
         [ho_ten]                    NVARCHAR(150) NULL,
         [ngay_sinh]                 int NULL,                          -- YYYYMMDD, nếu chỉ có năm sinh 19780000, nếu chỉ có tháng và năm 19781100        
         [gioi_tinh]                 BIT NULL,                                 -- 1: Nam, 0: Nữ
-        [so_cccd]                   VARCHAR(12) NULL,                         -- ID Card 12 số
+        [so_cccd]                   VARCHAR(12) NULL,  -- Bắt buộc 12 số, auto format dạng: 027-0-89-123456
         noi_cap_cccd	            NVARCHAR(150) null,
         ngay_cap_cccd               int null,
         [so_cmnd]                   VARCHAR(10) NULL,                         -- ID Card 12 số

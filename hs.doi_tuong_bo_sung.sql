@@ -9,7 +9,9 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[hs].[doi
 BEGIN
     CREATE TABLE hs.doi_tuong_bo_sung (
         [id]                        BIGINT IDENTITY(1,1) NOT NULL,
-        doi_tuong_id bigint not null, 
+        doi_tuong_id bigint not null,
+        [so_dien_thoai]      VARCHAR(10) NULL, --Tối đa cho 10 số, BE và FE kiểm soát chỉ cho nhập ký tự số, bắt buộc ký tự là số 0 ở đầu. 
+                                    --Trên FE khi nhập và grid auto format ba ký tự từ cuối về đầu, ngăn cách dấu chấm: 0986.986.756                                
         --Các thông tin cấp bậc chứ vụ đơn vị hiện tại
         [loai_dt_id]                     TINYINT NULL,--join bảng dm đối tượng để biết SQ hay QNCN
         thang_ht int not null,--yyyyMM Tháng hiện tại là tháng nào (cột này ẩn, để hệ thống kiểm soát: 
